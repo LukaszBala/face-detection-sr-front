@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px
+}
+
+.imagesWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.uploadButton {
+  // Your desired button styles here
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  &:disabled {
+    background-color: rgba(#007bff,.5);
+    cursor: default;
+  }
+}
+
+.download {
+  background-color: #84c52a;
+
+  &:disabled {
+    background-color: rgba(#84c52a,.5);
+    cursor: default;
+  }
+}
+
+.testBtn {
+  background-color: #b63190;
+
+  &:disabled {
+    background-color: rgba(#b63190,.5);
+    cursor: default;
+  }
+}

@@ -14,22 +14,232 @@
   //}
 }
 
-.croppedContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
 body, html {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  background-color: #f7f7f7;
 
   & > * {
     box-sizing: inherit;
   }
+}
+
+/* ImageProcessor.module.scss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin-top: 60px;
+}
+
+.uploadButton {
+  // Your desired button styles here
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  &:disabled {
+    background-color: rgba(#007bff,.5);
+    cursor: default;
+  }
+}
+
+.download {
+  background-color: #84c52a;
+
+  &:disabled {
+    background-color: rgba(#84c52a,.5);
+    cursor: default;
+  }
+}
+
+.testBtn {
+  background-color: #b63190;
+
+  &:disabled {
+    background-color: rgba(#b63190,.5);
+    cursor: default;
+  }
+}
+
+.btnPanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.topbar {
+  width: 100%;
+  background-color: #333;
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+
+  min-height: 500px;
+  width: 100%;
+
+  background-color: #fff;
+  border-radius: 16px;
+
+  border: 1px solid #ccc;
+  padding: 20px;
+  gap: 20px;
+}
+
+.buttonWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 20px;
+  flex: 0 0 calc(50% - 40px);
+  overflow: hidden;
+
+
+  button {
+    max-width: 200px;
+  }
+}
+
+.loaderOverlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0.51,0.51,0.51,0.12);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.fileInput {
+  margin-bottom: 20px;
+}
+
+.imageWrapper {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resultsControlsWrapper {
+  flex: 0 0 calc(50% - 40px);
+}
+
+.resultsContainer {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px
+}
+
+.upscalerContent {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px
+}
+
+.resultsTitle {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+.facesGridContainer {
+  background-color: #fff;
+  border-radius: 16px;
+
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.facesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  overflow: auto;
+  max-height: 600px;
+}
+
+.faceItem {
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faceImage {
+  max-width: 100px;
+  border-radius: 4px;
 }
